@@ -1,0 +1,33 @@
+'scopeName': 'source.kmd'
+'name': 'KMDoc'
+'fileTypes': [
+    'kmd',
+    'KMD'
+]
+'patterns': [
+  {
+    'match': '\\b(?i:(0x\\h*))'
+    'name': 'constant.numeric.integer.hexadecimal.python'
+  },
+  {
+    'match': '<\\=|>\\=|\\=\\=|<|>|\\!\\='
+    'name': 'keyword.operator.comparison.python'
+  }
+  {
+    'begin': '^\\s*(class)\\s+(?=[a-zA-Z_][a-zA-Z_0-9]*\\s*\\:)'
+    'beginCaptures':
+      '1':
+        'name': 'storage.type.class.python'
+    'contentName': 'entity.name.type.class.python'
+    'end': '\\s*(:)'
+    'endCaptures':
+      '1':
+        'name': 'punctuation.section.class.begin.python'
+    'name': 'meta.class.old-style.python'
+    'patterns': [
+      {
+        'include': '#entity_name_class'
+      }
+    ]
+  }
+]
