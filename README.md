@@ -13,3 +13,7 @@ ref
 # cmd (관리자모드)
 mklink /d C:\Users\오준호\.atom\packages-custom\language-kmd H:\Dev\Github\Atom\packages\language-kmd
 ```
+
+[language ruby: define syntax](https://github.com/atom/language-ruby/blob/master/grammars/ruby.cson)
+[syntax styles](https://github.com/atom/one-dark-syntax/blob/master/styles/language.less)
+[TextMate/12 Language Grammars](http://manual.macromates.com/en/language_grammars.html)
