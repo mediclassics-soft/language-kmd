@@ -8,7 +8,7 @@
   "activationCommands": {
     "atom-workspace": "language-kmd:toggle"
   },
-  "repository": "https://github.com/atom/language-kmd",
+  "repository": "https://github.com/pinedance/language-kmd",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

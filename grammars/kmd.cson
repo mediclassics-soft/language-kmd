@@ -77,6 +77,20 @@
     'name': 'meta.kmd'
   }
   {
+    'comment': 'inline: 스타일'
+    'captures':
+      '1':
+        'name': 'entity.name.tag.kmd'
+      '3':
+        'name': 'variable.language.kmd'
+      '4':
+        'name': 'string.regexp.kmd'
+      '5':
+        'name': 'entity.name.tag.kmd'
+    'match': '(\\[)((sm|lg|ip|ps|ng)/)?(.+?)(\\])'
+    'name': 'meta.kmd'
+  }
+  {
     'comment': 'comments'
     'captures':
       '1':
