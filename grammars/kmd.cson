@@ -6,74 +6,92 @@
     'comment': 'level'
     'captures':
       '1':
-        'name': 'keyword.control.kmd'
-      '2':
-        'name': 'constant.character.kmd'
-      '4':
-        'name': 'comment.line.kmd'
-    'match': '\\(\\((LV)\\)\\)\\t([A-Z]{2})(\\s*?)(//.*)?'
-    'name': 'string.single.kmd'
-  }
-  {
-    'comment': 'language: original text'
-    'captures':
-      '1':
         'name': 'keyword.operator.kmd'
       '2':
+        'name': 'constant.character.kmd'
+      '3':
         'name': 'comment.line.kmd'
-    'match': '\\(\\((OR)\\)\\)\\t.*?(//.*)?'
-    'name': 'markup.raw.kmd'
+    'match': '^\\(\\((LV)\\)\\)\\t([A-Z]{2})\\s*?(//.*)?$'
+    'name': 'none.kmd'
   }
-  {
-    'comment': 'language: korean text'
-    'captures':
-      '1':
-        'name': 'keyword.other.kmd'
-      '2':
-        'name': 'comment.line.kmd'
-    'match': '\\(\\((KR)\\)\\)\\t.*?(//.*)?'
-    'name': 'string.double.kmd'
-  }
-  {
-    'comment': 'language: etc text'
-    'captures':
-      '1':
-        'name': 'keyword.other.unit.kmd'
-      '2':
-        'name': 'comment.line.kmd'
-    'match': '\\(\\(([A-Z]{2})\\)\\)\\t.*?(//.*)?'
-    'name': 'string.interpolated.kmd'
-  }
+  # {
+  #   'comment': 'language: original text'
+  #   'captures':
+  #     '1':
+  #       'name': 'keyword.operator.kmd'
+  #   'match': '^\\(\\((OR)\\)\\)\\t'
+  #   'name': 'markup.raw.kmd'
+  # }
+  # {
+  #   'comment': 'language: korean text'
+  #   'captures':
+  #     '1':
+  #       'name': 'keyword.operator.kmd'
+  #   'match': '^\\(\\((KR)\\)\\)\\t'
+  #   'name': 'string.double.kmd'
+  # }
+  # {
+  #   'comment': 'language: etc text'
+  #   'captures':
+  #     '1':
+  #       'name': 'keyword.other.unit.kmd'
+  #   'match': '^\\(\\(([A-Z]{2})\\)\\)\\t'
+  #   'name': 'string.interpolated.kmd'
+  # }
   {
     'comment': '의미분류'
     'captures':
-      '1':
+      '1': # tag 전체
         'name': 'support.class.kmd'
-      '3':
-        'name': 'keyword.operator.kmd'
-      '4':
+      '2': # 치료
+        'name': 'support.function.kmd'
+      '3': # 병증
+        'name': 'support.class.kmd'
+      '4': # 본초
+        'name': 'support.type.kmd'
+      '5': # 방제
+        'name': 'support.constant.kmd'
+      '6': # 경혈
+        'name': 'support.variable.kmd'
+      '7': # 기타
+        'name': 'support.other.kmd'
+      '10':  # 병증키워드
         'name': 'variable.language.kmd'
-      '5':
-        'name': 'keyword.operator.kmd'
-      '6':
-        'name': 'comment.line.kmd'
-    'match': '(\\[.+?\\])\\t((\\(\\()(.+?)(\\)\\)))?.*?\\s*?(//.*)?'
+    'match': '^((\\[치료>.+?\\])|(\\[병증>.+?\\])|(\\[본초>.+?\\])|(\\[방제>.+?\\])|(\\[경혈>.+?\\])|(\\[기타>.+?\\]))\\t((\\(\\()(.+?)(\\)\\)))?'
     'name': 'meta.class.kmd'
   }
   {
-    'comment': 'inline: 교감기/역자주'
+    'comment': 'inline: 교감기'
     'captures':
       '1':
         'name': 'entity.name.tag.kmd'
       '2':
-        'name': 'string.interpolated.kmd'
+        'name': 'string.regexp.kmd'
       '3':
         'name': 'keyword.operator.kmd'
       '4':
-        'name': 'string.regexp.kmd'
+        'name': 'string.interpolated.kmd'
       '5':
         'name': 'entity.name.tag.kmd'
-    'match': '(\\{)(.+?)([=:])(.+?)(\\})'
+    'match': '(\\{)(.*?)([=])(.+?)(\\})'
+    'name': 'meta.kmd'
+  }
+  {
+    'comment': 'inline: 역자주'
+    'captures':
+      '1':
+        'name': 'entity.name.tag.kmd'
+      '2':  # 원문
+        'name': 'string.regexp.kmd'
+      '3':  # :
+        'name': 'keyword.operator.kmd'
+      '4':  # 발음
+        'name': 'variable.language.kmd'
+      '5':  # 역자주
+        'name': 'string.interpolated.kmd'
+      '6':
+        'name': 'entity.name.tag.kmd'
+    'match': '(\\{)(.*?)([:])(.+?!)?(.+?)(\\})'
     'name': 'meta.kmd'
   }
   {
@@ -91,11 +109,28 @@
     'name': 'meta.kmd'
   }
   {
+    'comment': 'inline: 이미지'
+    'match': '<[a-zA-Z\\d/].+?>'
+    'name': 'storage.type.kmd'
+  }
+  {
+    'comment': 'inline: 개행'
+    'match': '\\{n\\}'
+    'name': 'markup.italic.kmd'
+  }
+  {
+    'comment': 'inline: 파자'
+    'match': '【.+?】'
+    'name': 'markup.quote.kmd'
+  }
+  {
     'comment': 'comments'
-    'captures':
-      '1':
-        'name': 'comment.kmd'
-    'match': '.*?(//.*)'
-    'name': 'none.kmd'
+    'match': '//.*$'
+    'name': 'comment.kmd'
+  }
+  {
+    'comment': '기호'
+    'match': '[=\\:;@\\*\\&#+/]'
+    'name': 'keyword.operator.kmd'
   }
 ]
