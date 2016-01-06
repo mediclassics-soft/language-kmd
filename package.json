@@ -1,7 +1,7 @@
 {
   "name": "Language-kmd",
   "main": "./lib/language-kmd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Syntax highlighting for KMDoc",
   "keywords": [],
   "activationCommands": {
