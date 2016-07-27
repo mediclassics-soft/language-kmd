@@ -1,3 +1,7 @@
 # language-kmd package
 
-Syntax highlighting for KMDoc
+This is atom packages.
+
+Syntax highlighting for KMDoc file format.
+
+
